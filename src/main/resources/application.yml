@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: taskflow
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/taskflow}
+    username: ${SPRING_DATASOURCE_USERNAME:taskflow}
+    password: ${SPRING_DATASOURCE_PASSWORD:taskflow_dev}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+        jdbc:
+          time_zone: UTC
+    show-sql: false
+    open-in-view: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+server:
+  port: 8080
+  error:
+    include-message: always
+
+logging:
+  level:
+    org.hibernate.SQL: INFO
+    org.springframework.security: INFO
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:dev-secret-change-this-to-a-long-random-string-at-least-256-bits-for-hs256-algorithm-okay}
+    expiration-ms: 86400000
