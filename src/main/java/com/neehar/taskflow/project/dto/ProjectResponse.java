@@ -21,6 +21,6 @@ public record ProjectResponse(
 	                project.getOwner().getId(),
 	                project.getOwner().getName(),
 	                project.getCreatedAt(),
-	                project.getUpdatedAt()	);
+	                project.getUpdatedAt());
 	}
 }
